@@ -53,6 +53,7 @@ main{
   padding: 0.5em;
   margin: 30px;
   transition: all 500ms linear;
+  border-bottom: 2px solid #50ff1b;
  }
  
   .card2:hover{
@@ -112,6 +113,7 @@ main{
     visibility: visible;
     z-index: 1;
     position: absolute;
+    justify-content:end;
 }
 
 .modal-carrito {
@@ -121,6 +123,7 @@ main{
     padding: 30px;
     margin-top: -100%;
     transition: all .5s;
+    border-radius: 20px;
 }
 
 .modal-active .modal-carrito {
