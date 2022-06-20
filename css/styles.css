@@ -40,7 +40,7 @@ main{
 }
 
 .card2 {
-  background-image: url(../assets/img/fondomodal.jpeg);
+  background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   box-shadow: 1px 1px 5px #adabab;
   border: solid rgba(3, 133, 255, 0) 2px;
@@ -54,6 +54,7 @@ main{
   margin: 30px;
   transition: all 500ms linear;
   border-bottom: 2px solid #50ff1b;
+  border-right: 2px solid #50ff1b;;
  }
  
   .card2:hover{
@@ -118,7 +119,7 @@ main{
 
 .modal-carrito {
     position: relative;
-    background-image: url(../assets/img/fondomodal.jpeg);
+    background-color: rgba(0, 0, 0, 0.3);
     min-width: 500px;
     padding: 30px;
     margin-top: -100%;
