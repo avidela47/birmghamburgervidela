@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Macondo&family=Montserrat:ital,wght@0,100;0,200;0,300;1,100&family=Permanent+Marker&display=swap");
+/* Body */
+
+body {
+  background-image: url(../assets/img/fondo.jpg);
+  font-family: 'Macondo', cursive;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x: hidden; }
+
+h1, h2 {
+  font-family: 'Macondo', cursive;
+  text-align: center;
+  padding: 0.5rem;
+  background: linear-gradient(to bottom right, #f80202, #f8fc05, #320dda);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
+/* Navbar */
+.navbar-brand {
+  font-family: 'Permanent Marker', cursive;
+  background: linear-gradient(to bottom right, #f80202, #f8fc05, #320dda);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  padding: 0px;
+}
+  
+/* Tienda on line */
+
+main{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  margin: 3px auto;
+  max-width: 1200px;
+  padding: 0 50px;
+}
+
+.card2 {
+  background-image: url(../assets/img/fondomodal.jpeg);
+  color: #fff;
+  box-shadow: 1px 1px 5px #adabab;
+  border: solid rgba(3, 133, 255, 0) 2px;
+  width: 250px;
+  height: 390px;
+  font-family: 'Macondo', cursive;
+  font-size: 0.7rem;
+  text-align: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  margin: 30px;
+  transition: all 500ms linear;
+ }
+ 
+  .card2:hover{
+    filter: sepia(60%);
+    -webkit-transform:scale(1.1);
+    transform:scale(1.1);
+}
+
+.card2 .card-title {
+  font-size: 1.5rem;
+  background: linear-gradient(to bottom right, #f80202, #f8fc05, #320dda);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
+.card-text {
+  font-family: 'Macondo', cursive;
+  font-size: 0.8rem; }
+
+.img {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.btn {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.btn:hover{
+  background-color: rgba(87, 77, 77, 0.8);
+}
+
+#boton-carrito{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Modal */
+
+  .modal-contenedor {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    position: absolute;
+}
+
+.modal-carrito {
+    position: relative;
+    background-image: url(../assets/img/fondomodal.jpeg);
+    min-width: 500px;
+    padding: 30px;
+    margin-top: -100%;
+    transition: all .5s;
+}
+
+.modal-active .modal-carrito {
+    margin-top: auto;
+}
+
+.modal-carrito h3 {
+    color: rgb(227, 230, 238);
+    padding-bottom: 5px;
+}
+.modal-carrito #carritoCerrar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.7);
+    border: none;
+    background-color: white;
+}
+.modal-carrito #carritoCerrar:hover {
+    cursor: pointer;
+}
+.modal-carrito #carritoCerrar:focus {
+    outline: none;
+}
+.modal-carrito .precioProducto {
+    padding-top: 15px;
+    color: #fff;
+    font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    
+}
+.modal-carrito .img{
+  width: 50px;
+  height: 50px;
+}
+
+.productoEnCarrito {
+    border-left: 5px solid rgb(230, 199, 173);
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    margin: 5px 0;
+    padding: 5px 0px;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    border-radius: 50%;
+}
+.productoEnCarrito:hover {
+    border-left: 5px solid rgb(255, 0, 0);
+}
+
+.boton-eliminar {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 20px;
+}
+
+.boton-eliminar:hover {
+    cursor: pointer;
+}
+.boton-eliminar:focus {
+    outline: none;
+}
+
+/* Contacto */
+
+  .card{
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #50ff1b;
+    height: 100px;
+    width: 200px;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.contacto{
+    color: grey;
+    text-decoration: none;
+}
+
+/* Footer */
+.text-center {
+  margin-top: 7px;
+  background-color: rgba(255, 255, 255, 0.1); }
+
+/* Media Queries Smartphone */
+
+@media screen and (max-width: 767px) {
+  .logo {
+    width: 35px;
+    height: 35px; }
+  .navbar-brand {
+    font-size: 1.5rem; }
+    h1, h2{
+      font-size: 1.5rem;
+    }
+    .modal-carrito{
+      text-align:start;
+      justify-content: space-around;
+      min-width: 370px;
+   }
+    } 
+
+/* Media Queries Tablet */
+
+@media screen and (max-width: 1024px) and (min-width: 768px){
+      .modal-carrito{
+        text-align:start;
+        justify-content: space-around;
+        min-width: 600px;
+    
+     }
+  }
