@@ -24,7 +24,7 @@ stockproductos.forEach((producto) => {
                      <p class="card-text">${producto.descripcion}</p>
                      <h5 class="card-title">$${producto.precio}</h5>
                      <img class="img" src=${producto.img} alt="">
-                     <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary btn-sm">Agregar al carrito<i class="fa-solid fa-cart-plus fa-2x"></i></button>
+                     <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary btn-sm">Agregar<i class="fa-solid fa-cart-plus fa-2x"></i></button>
                      </div>
                      </div>
                      </div>

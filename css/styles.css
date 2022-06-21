@@ -18,6 +18,7 @@ h1, h2 {
   -webkit-text-fill-color: transparent; }
 
 /* Navbar */
+
 .navbar-brand {
   font-family: 'Permanent Marker', cursive;
   background: linear-gradient(to bottom right, #f80202, #f8fc05, #320dda);
@@ -44,10 +45,10 @@ main{
   color: #fff;
   box-shadow: 1px 1px 5px #adabab;
   border: solid rgba(3, 133, 255, 0) 2px;
-  width: 250px;
-  height: 390px;
+  width: 320px;
+  height: 250px;
   font-family: 'Macondo', cursive;
-  font-size: 0.7rem;
+  font-size: 0.3rem;
   text-align: center;
   justify-content: space-between;
   padding: 0.5em;
@@ -64,7 +65,7 @@ main{
 }
 
 .card2 .card-title {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   background: linear-gradient(to bottom right, #f80202, #f8fc05, #320dda);
   -webkit-background-clip: text;
   background-clip: text;
@@ -75,8 +76,8 @@ main{
   font-size: 0.8rem; }
 
 .img {
-  width: 100%;
-  display: block;
+  width: 50%;
+  display:inline-block;
   margin-left: auto;
   margin-right: auto; }
 
