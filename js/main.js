@@ -5,9 +5,18 @@ const carritoContenedor = document.querySelector('#carrito-contenedor')
 const contadorCarrito = document.querySelector('#contadorCarrito')
 const precioTotal = document.querySelector('#precioTotal')
 const vaciarCarrito = document.querySelector('#vaciarCarrito')
-let carrito = []
 
+// Almacenamiento Local
 
+let carrito
+const carritoEnLS = JSON.parse(localStorage.getItem("carrito"))
+
+if (carritoEnLS) {
+    carrito = carritoEnLS
+    
+} else {
+    carrito = []
+}
 
 // Agragar productos stock al DOM
 
@@ -24,7 +33,7 @@ stockproductos.forEach((producto) => {
                      <p class="card-text">${producto.descripcion}</p>
                      <h5 class="card-title">$${producto.precio}</h5>
                      <img class="img" src=${producto.img} alt="">
-                     <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary btn-sm">Agregar<i class="fa-solid fa-cart-plus fa-2x"></i></button>
+                     <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary btn-sm">Agregar<<i class="fa-solid fa-cart-arrow-down fa-2x"></i></button>
                      </div>
                      </div>
                      </div>
@@ -38,6 +47,9 @@ productosContenedor.append(div)
 const agregarAlCarrito = (id) => {
     const combos = stockproductos.find( (combo) => combo.id === id)
     carrito.push(combos)
+
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+
     renderCarrito()
     renderCantidad()
     rederTotal()
@@ -49,6 +61,9 @@ const eliminarDelCarrito = (id) => {
     const combos = carrito.find((combo) => combo.id === id)
     const indice = carrito.indexOf(combos)
     carrito.splice(indice, 1)
+
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+
     renderCarrito()
     renderCantidad()
     rederTotal()
@@ -58,6 +73,9 @@ const eliminarDelCarrito = (id) => {
 
 const vaciarElCarrito = () => {
     carrito = []
+
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    
     renderCarrito()
     renderCantidad()
     rederTotal()
@@ -94,6 +112,7 @@ const rederTotal = () => {
 
     precioTotal.innerText = total
 }
+
 
 
 

@@ -19,6 +19,10 @@ h1, h2 {
 
 /* Navbar */
 
+.navbar{
+  background-image: url(../assets/img/fondomodal.jpeg);
+}
+
 .navbar-brand {
   font-family: "Oswald", sans-serif;
   background: linear-gradient(to bottom right, #a7a4a4, #9e9e9a, #ffffff);
@@ -60,19 +64,19 @@ h1, h2 {
 	    margin: 0 auto;
       text-shadow: 0 0 80px rgba(255,255,255,.7);
 
-/* Clip Background Image */
+/* Clip Background Imagen */
 
 background: url(../assets/img/fondomodal.jpeg) repeat-y;
 -webkit-background-clip: text;
 background-clip: text;
 
-/* Animate Background Image */
+/* Animacion Background Imagen */
 
 -webkit-text-fill-color: transparent;
--webkit-animation: aitf 40s linear infinite;
-animation: aitf 40s linear infinite;
+-webkit-animation: aitf 20s linear infinite;
+animation: aitf 20s linear infinite;
 
-/* Activate hardware acceleration for smoother animations */
+/* Activacion animaciones */
 
 -webkit-transform: translate3d(0,0,0);
 transform: translate3d(0,0,0);
@@ -81,7 +85,7 @@ backface-visibility: hidden;
 
 }
 
-/* Animate Background Image */
+/* Animacion Background Imagen */
 
 @-webkit-keyframes aitf {
 0% { background-position: 0% 50%; }
@@ -182,6 +186,7 @@ main{
 }
 
 .modal-carrito {
+    background-image: url(../assets/img/fondomodal.jpeg);
     position: relative;
     background-color: rgba(0, 0, 0, 0.4);
     min-width: 500px;
@@ -273,7 +278,7 @@ main{
     border-radius: 50px;
     font-size: 1rem;
     color: #fff;
-    font-family: "Poppins", sans-serif;
+    font-family: "Oswald", sans-serif;
 }
 
 .contacto{
@@ -298,6 +303,7 @@ main{
       font-size: 1.5rem;
     }
     .modal-carrito{
+      background-image: url(../assets/img/fondomodal.jpeg);
       text-align:start;
       justify-content: space-around;
       min-width: 370px;
@@ -324,6 +330,7 @@ main{
 
 @media screen and (max-width: 1024px) and (min-width: 768px){
       .modal-carrito{
+        background-image: url(../assets/img/fondomodal.jpeg);
         text-align:start;
         justify-content: space-around;
         min-width: 600px;
