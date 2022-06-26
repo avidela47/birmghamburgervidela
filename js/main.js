@@ -1,5 +1,7 @@
 // Selectores
 
+// Modal
+
 const productosContenedor = document.querySelector('#contenedor-productos')
 const carritoContenedor = document.querySelector('#carrito-contenedor')
 const contadorCarrito = document.querySelector('#contadorCarrito')
@@ -83,6 +85,8 @@ const vaciarElCarrito = () => {
 
 vaciarCarrito.addEventListener('click', vaciarElCarrito)
 
+// Render en carrito de compras
+
 const renderCarrito = () => {
     carritoContenedor.innerHTML = ''
 
@@ -100,9 +104,13 @@ carritoContenedor.append(div)
     })
 }
 
+// Contador de productos en carrito
+
 const renderCantidad = () => {
     contadorCarrito.innerText = carrito.length
 }
+
+// Suma total de la compra
 
 const rederTotal = () => {
     let total = 0

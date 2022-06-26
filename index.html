@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/styles.css">
-  <script defer src="./js/modal.js"></script>
+  <script defer src="./js/gift.js"></script>
+  <script defer src="./js/modal.js"></script>  
   <script defer src="./js/stock.js"></script>
   <script defer src="./js/main.js"></script>
 </head>
@@ -22,7 +23,8 @@
         <img src="./assets/img/logo.png" alt="" width="75" height="75" class=" txtl d-inline-block align-text-center">
         BIRMGHAM BURGER
       </h1>
-      <button class="btn btn-primary btn-sm" id="boton-carrito"><i class="fa-solid fa-cart-plus fa-2x"></i><span id="contadorCarrito">0</span></button>
+      <button class="btn btn-primary btn-sm" id="boton-registro"><i class="fa-solid fa-id-card fa-2x"></i>GIFT CARDS<span id="contadorRegistro"></span></button>
+      <button class="btn btn-primary btn-sm" id="boton-carrito"><i class="fa-solid fa-cart-plus fa-2x"></i><span id="contadorCarrito">0</span></button>      
     </div>
   </nav>
   <!-- Cartel -->
@@ -75,6 +77,17 @@
       </div>
     </div> -->
 </main> 
+  <!--GIFT CARDS -->
+  <div class="modal-container">
+    <div class="modal-close">
+      <button class="giftCerrar" id="giftCerrar"><i class="fas fa-times-circle"></i></button>
+        <img class="imgc" src="./assets/img/combo.png" alt="">
+    <div class="modal-textos">
+        <h2>GIFT CARDS</h2>
+        <p class="gift">GIFT CARDS 20% OFF en cualquier combo que elijas. <br> ¡Un regalo que los dejará con la boca abierta!</p>
+    </div>
+  </div>
+  </div>
   <!-- Modal -->
     <div class="modal-contenedor">
       <div class="modal-carrito">
@@ -82,8 +95,7 @@
           <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
           <div id="carrito-contenedor">
           <!--    <div class="productoEnCarrito">
-                  <p>Buzo 1</p>
-                  <img class="img" src="./assets/img/sellyoak.png" alt="" width="75" height="75">
+                  <img class="img" src="./assets/img/sellyoak.png" alt=""
                   <p>Precio: $1200</p>
                   <button class="boton-eliminar"><i class=" btn btn-primary btn-sm fas fa-trash-alt"></i></button>
               </div> -->
