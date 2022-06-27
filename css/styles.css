@@ -386,6 +386,9 @@ main{
     width: auto;
     height: auto;
    }
+   .gift{
+    font-size: 0.7rem;
+   }
   } 
 
 /* Media Queries Tablet */
