@@ -15,7 +15,8 @@ h1, h2 {
   background: linear-gradient(to bottom right, #000000, #f1f1da, #ffffff);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent; }
+  -webkit-text-fill-color: transparent;
+}
 
 /* Navbar */
 
@@ -119,10 +120,8 @@ main{
   text-align: center;
   justify-content: space-between;
   padding: 0.5em;
-  margin: 30px;
+  margin: 25px;
   transition: all 500ms linear;
-  border-bottom: 2px solid #50ff1b;
-  border-right: 2px solid #50ff1b;
  }
  
   .card2:hover{

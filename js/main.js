@@ -10,17 +10,25 @@ const vaciarCarrito = document.querySelector('#vaciarCarrito')
 
 // Almacenamiento Local
 
-let carrito
-const carritoEnLS = JSON.parse(localStorage.getItem("carrito"))
+// Operador logico OR
 
-if (carritoEnLS) {
-    carrito = carritoEnLS
-    
-} else {
-    carrito = []
-}
+let carrito = JSON.parse(localStorage.getItem("carrito")) || []
 
-// Agragar productos stock al DOM
+// Sin Operador logico OR
+
+// let carrito
+// const carritoEnLS = JSON.parse(localStorage.getItem("carrito"))
+
+// if (carritoEnLS) {//
+//     carrito = carritoEnLS
+   
+// } else {
+//     carrito = []
+// }
+
+ // Agragar productos stock al DOM
+
+// Operador ternario para agregar descuento "linea 47"
 
 stockproductos.forEach((producto) => {
     const div = document.createElement('div')
@@ -36,6 +44,7 @@ stockproductos.forEach((producto) => {
                      <h5 class="card-title">$${producto.precio}</h5>
                      <img class="img" src=${producto.img} alt="">
                      <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary btn-sm">Agregar<<i class="fa-solid fa-cart-arrow-down fa-2x"></i></button>
+                     <h5 class="card-title">${producto.descuento === true ? "<p>15% off</p>" : ''}</h5>
                      </div>
                      </div>
                      </div>
@@ -121,7 +130,64 @@ const rederTotal = () => {
     precioTotal.innerText = total
 }
 
+// Desestructuracion de objetos
 
+const empleado1 = {
+    nombre: "Ariel Videla",
+    edad : 48,
+    direccion: "Esmeralda 535",
+    turnos:{
+        jueves: "tarde",
+        viernes: "mañana",
+        sabado:"tarde",
+        domingos:"franco"
+    }
+}
+
+const {nombre, edad, direccion, turnos:{jueves}} = empleado1
+
+console.log(nombre, edad, direccion, jueves)
+
+// alias
+
+const sucursal ={
+    id_sucursal:5775,
+    suc_localidad: "Cordoba",
+    suc_direccion: "Jujuy 256",
+    suc_cant_empl: 15
+}
+
+const {id_sucursal: id, suc_localidad: localidad, suc_direccion:domicilio, suc_cant_empl: empleados} = sucursal
+
+console.log(id,localidad,domicilio,empleados)
+
+// Desestructuracion en parametros
+
+const mostrarSucursal = ({id_sucursal, suc_localidad, suc_direccion, suc_cant_empl}) =>{
+
+    console.log("id: " + id_sucursal)
+    console.log("localidad: " + suc_localidad)
+    console.log("domicilio: " + suc_direccion)
+    console.log("empleados: " + suc_cant_empl)
+}
+
+mostrarSucursal(sucursal)
+
+// Desestructuracion en arrays
+
+const ingredientes = ["Meadallon de Res", "Tomate", "Cebolla", "Queso", "Tocino"]
+
+const [a, ,b, ,c] = ingredientes
+
+console.log(a,b,c)
+
+// Spread de arrays
+
+const combo2 = ["Burger", "Papas", "Gaseosa", 1200]
+const combo3 = ["Burger", "Ensalada", "Cerveza", 1500]
+
+const compra = [...combo2, ...combo3]
+console.log(compra)
 
 
 
