@@ -5,7 +5,7 @@ abrir.addEventListener("click", function(){
     Swal.fire({
         title: 'GIFT CARDS!',
         text: 'GIFT CARDS 20% OFF en cualquier combo que elijas - Un regalo que los dejará con la boca abierta!',
-        imageUrl: '../assets/img/combo.png',
+        imageUrl: './assets/img/combo.png',
         imageWidth: 450,
         imageHeight: 250,
         confirmButtonText: 'Reclama, Tu Gift Card!',
