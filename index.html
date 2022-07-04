@@ -5,17 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Burger artesanales con variedad de carnes, esto hace que cada una de nuestras Burgers sean distintinta y unicas.">
   <meta name="keywords"  content="BURGER, ARTESANALES, SABORES, TOPPING, CERVEZA, PAPAS FRITAS">
-  <title>Birmingham Burguer</title>
+  <title>Birmgham Burguer</title>
   <link rel="shortcut icon" href="./assets/img/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <link rel="stylesheet" href="./css/styles.css">
+  <script defer src="./js/intro.js"></script>
   <script defer src="./js/gift.js"></script>
   <script defer src="./js/modal.js"></script>  
   <script defer src="./js/stock.js"></script>
   <script defer src="./js/main.js"></script>
 </head>
 <body>
+  <!-- Intro -->
+  <div class="intro">
+    <img src="./assets/img/image.png" alt="">
+    <h2 class="logos">
+      <h4><span class="marca">B</span><span class="marca">I</span><span class="marca">R</span><span class="marca">M</span><span class="marca">G</span><span class="marca">H</span><span class="marca">A</span><span class="marca">M</span><span class="marca">-</span><span class="marca">B</span><span class="marca">U</span><span class="marca">R</span><span class="marca">G</span><span class="marca">E</span><span class="marca">R</span></h4>
+      </h2>
+    <p>&mdash; TU BURGER GOURMET &mdash;</p>
+  </div>
   <!-- Navbar -->
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
@@ -23,15 +33,15 @@
         <img src="./assets/img/logo.png" alt="" width="75" height="75" class=" txtl d-inline-block align-text-center">
         BIRMGHAM BURGER
       </h1>
-      <button class="btn btn-primary btn-sm" id="boton-registro"><i class="fa-solid fa-id-card fa-2x"></i>GIFT CARDS<span id="contadorRegistro"></span></button>
-      <button class="btn btn-primary btn-sm" id="boton-carrito"><i class="fa-solid fa-cart-plus fa-2x"></i><span id="contadorCarrito">0</span></button>      
+      <button class="btn btn-primary btn-sm" id="boton-gift">GIFT CARD<i class="fa-solid fa-id-card fa-2x"></i><span id="contadorRegistro"></span></button>
+      <button class="btn btn-primary btn-sm" id="boton-carrito"><i class="fa-solid fa-cart-plus fa-3x"></i><span id="contadorCarrito">0</span></button>      
     </div>
   </nav>
   <!-- Cartel -->
   <div class="cartel py-4 h-100">
     <h3 class="tit">
     Bienvenidos a
-    <span class="span">
+    <span class="span2">
       BIRMGHAM BURGER
     </span>
     &mdash; Descubre el nuevo sabor de la hamburguesa gourmet &mdash;
@@ -59,46 +69,16 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  <span><h2>&mdash; Hace tu pedido!!! &mdash;</h2></span>
   <!-- Productos -->
   <main id="contenedor-productos" class="container-fliud"> 
-   <!-- <div class="container-fliud">
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card2 mx-auto rounded-3">
-            <div class="card-body">
-              <h5 class="card-title">SELLY OAK</h5>
-              <p class="card-text">Pan Brioche, medallon de carne de ternera, queso cheddar, panceta, cebolla frita y huevo.</p>
-              <h5 class="card-title">$1300</h5>
-              <img class="img" src="./assets/img/sellyoak.png" alt="">
-              <button class="btn btn-primary btn-sm">Agregar al carrito<i class="fa-solid fa-cart-plus fa-2x"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-</main> 
-  <!--GIFT CARDS -->
-  <div class="modal-container">
-    <div class="modal-close">
-      <button class="giftCerrar" id="giftCerrar"><i class="fas fa-times-circle"></i></button>
-        <img class="imgc" src="./assets/img/combo.png" alt="">
-    <div class="modal-textos">
-        <h2>GIFT CARDS</h2>
-        <p class="gift">GIFT CARDS 20% OFF en cualquier combo que elijas. <br> ¡Un regalo que los dejará con la boca abierta!</p>
-    </div>
-  </div>
-  </div>
-  <!-- Modal -->
+  </main> 
+   <!-- Modal -->
     <div class="modal-contenedor">
       <div class="modal-carrito">
-        <h3>Tu Combo</h3>
+        <h3>Tu Pedido</h3>
           <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
           <div id="carrito-contenedor">
-          <!--    <div class="productoEnCarrito">
-                  <img class="img" src="./assets/img/sellyoak.png" alt=""
-                  <p>Precio: $1200</p>
-                  <button class="boton-eliminar"><i class=" btn btn-primary btn-sm fas fa-trash-alt"></i></button>
-              </div> -->
           </div>
           <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
           <button id="vaciarCarrito" class="boton-eliminar btn btn-light btn-sm">VACIAR CARRITO</button>
@@ -167,6 +147,8 @@
     <p class="text-white">© 2022 Copyright: Ariel Videla</p>
   </div>
 </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -8,27 +8,11 @@ const contadorCarrito = document.querySelector('#contadorCarrito')
 const precioTotal = document.querySelector('#precioTotal')
 const vaciarCarrito = document.querySelector('#vaciarCarrito')
 
-// Almacenamiento Local
-
-// Operador logico OR
+// Almacenamiento Local / Operador logico OR
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []
 
-// Sin Operador logico OR
-
-// let carrito
-// const carritoEnLS = JSON.parse(localStorage.getItem("carrito"))
-
-// if (carritoEnLS) {//
-//     carrito = carritoEnLS
-   
-// } else {
-//     carrito = []
-// }
-
  // Agragar productos stock al DOM
-
-// Operador ternario para agregar descuento "linea 47"
 
 stockproductos.forEach((producto) => {
     const div = document.createElement('div')
@@ -43,7 +27,7 @@ stockproductos.forEach((producto) => {
                      <p class="card-text">${producto.descripcion}</p>
                      <h5 class="card-title">$${producto.precio}</h5>
                      <img class="img" src=${producto.img} alt="">
-                     <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary btn-sm">Agregar<<i class="fa-solid fa-cart-arrow-down fa-2x"></i></button>
+                     <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary btn-sm">Agregar<i class="fa-solid fa-cart-arrow-down fa-2x"></i></button>
                      <h5 class="card-title">${producto.descuento === true ? "<p>15% off</p>" : ''}</h5>
                      </div>
                      </div>
@@ -55,10 +39,22 @@ productosContenedor.append(div)
 
 // Agragar productos al carrito de compras
 
-const agregarAlCarrito = (id) => {
-    const combos = stockproductos.find( (combo) => combo.id === id)
-    carrito.push(combos)
+const agregarAlCarrito = (productoId) => {
+    const combosEnCarrito = carrito.find((combo) => combo.id === productoId)
 
+    if (combosEnCarrito) {
+        combosEnCarrito.cantidad += 1
+        showMensaje(combosEnCarrito.nombre)
+    } else {
+        const {id, nombre, img, precio} = stockproductos.find( (combo) => combo.id === productoId)
+    
+        const combosAlCarrito = {
+        id, nombre, img, precio, cantidad: 1
+    }
+        carrito.push(combosAlCarrito)
+        showMensaje(nombre)
+    }
+    
     localStorage.setItem("carrito", JSON.stringify(carrito))
 
     renderCarrito()
@@ -70,8 +66,23 @@ const agregarAlCarrito = (id) => {
 
 const eliminarDelCarrito = (id) => {
     const combos = carrito.find((combo) => combo.id === id)
-    const indice = carrito.indexOf(combos)
-    carrito.splice(indice, 1)
+
+    combos.cantidad -= 1
+
+    if (combos.cantidad === 0){
+        const indice = carrito.indexOf(combos)
+        carrito.splice(indice, 1)
+    }
+
+    Toastify({
+        text: `Se elimino 1 combo de ${combos.nombre}`,
+        position: 'left',
+        gravity: 'bottom',
+        duration: 5000,
+        style: {background: "linear-gradient(to right, #240b36, #d20bec, #462b16)",
+        color: "#ffffff"
+        }
+    }).showToast()
 
     localStorage.setItem("carrito", JSON.stringify(carrito))
 
@@ -84,15 +95,42 @@ const eliminarDelCarrito = (id) => {
 
 const vaciarElCarrito = () => {
     carrito = []
-
     localStorage.setItem("carrito", JSON.stringify(carrito))
-    
+
     renderCarrito()
     renderCantidad()
     rederTotal()
 }
 
-vaciarCarrito.addEventListener('click', vaciarElCarrito)
+// Sweetalert vaciar el carrito de compras
+
+vaciarCarrito.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Estas seguro?',
+        text: "Estas a punto de vaciar el carrito!",
+        icon: 'warning',
+        background: 'linear-gradient(to right, #240b36, #462b16, #d20bec, #e15bf3 )',
+        showCancelButton: true,
+        confirmButtonColor: 'rgba(255, 255, 255, 0.1)',
+        cancelButtonColor: 'rgba(255, 255, 255, 0.1)',
+        confirmButtonText: 'Si, vaciar!',
+        cancelButtonText: 'No, cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            vaciarElCarrito()
+            botonCerrar.click()
+            Toastify({
+                text: 'Se vacio el carrito',
+                position: 'right',
+                gravity: 'top',
+                duration: 3000,
+                style: {background: "linear-gradient(to right, #240b36, #d20bec, #462b16)",
+                color: "#ffffff"
+                }
+            }).showToast()
+        }
+      })
+})
 
 // Render en carrito de compras
 
@@ -104,6 +142,7 @@ const renderCarrito = () => {
         div.classList.add('productoEnCarrito')
 
         div.innerHTML = `
+                        ${combo.cantidad}- 
                         <p>${combo.nombre}</p>
                         <img class="img" src=${combo.img} alt="">
                         <p>Precio: $${combo.precio}</p>
@@ -116,7 +155,7 @@ carritoContenedor.append(div)
 // Contador de productos en carrito
 
 const renderCantidad = () => {
-    contadorCarrito.innerText = carrito.length
+    contadorCarrito.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
 }
 
 // Suma total de la compra
@@ -124,76 +163,37 @@ const renderCantidad = () => {
 const rederTotal = () => {
     let total = 0
     carrito.forEach((producto) => {
-        total += producto.precio
+        total += producto.precio * producto.cantidad
     })
 
     precioTotal.innerText = total
 }
 
-// Desestructuracion de objetos
+// Toastify Agragar productos al carrito de compras
 
-const empleado1 = {
-    nombre: "Ariel Videla",
-    edad : 48,
-    direccion: "Esmeralda 535",
-    turnos:{
-        jueves: "tarde",
-        viernes: "mañana",
-        sabado:"tarde",
-        domingos:"franco"
-    }
+const showMensaje = (nombre) => {
+    Toastify({
+        text: `Se agrego una ${nombre} al CARRITO`,
+        duration: 3000,
+        gravity: "top",
+        position: "left",
+        onClick: () => {
+            botonAbrir.click()
+        },
+        style: {
+            background:"linear-gradient(to right, #240b36, #d20bec, #462b16)",
+            color: "#ffffff",
+        }
+}).showToast();
 }
 
-const {nombre, edad, direccion, turnos:{jueves}} = empleado1
-
-console.log(nombre, edad, direccion, jueves)
-
-// alias
-
-const sucursal ={
-    id_sucursal:5775,
-    suc_localidad: "Cordoba",
-    suc_direccion: "Jujuy 256",
-    suc_cant_empl: 15
-}
-
-const {id_sucursal: id, suc_localidad: localidad, suc_direccion:domicilio, suc_cant_empl: empleados} = sucursal
-
-console.log(id,localidad,domicilio,empleados)
-
-// Desestructuracion en parametros
-
-const mostrarSucursal = ({id_sucursal, suc_localidad, suc_direccion, suc_cant_empl}) =>{
-
-    console.log("id: " + id_sucursal)
-    console.log("localidad: " + suc_localidad)
-    console.log("domicilio: " + suc_direccion)
-    console.log("empleados: " + suc_cant_empl)
-}
-
-mostrarSucursal(sucursal)
-
-// Desestructuracion en arrays
-
-const ingredientes = ["Meadallon de Res", "Tomate", "Cebolla", "Queso", "Tocino"]
-
-const [a, ,b, ,c] = ingredientes
-
-console.log(a,b,c)
-
-// Spread de arrays
-
-const combo2 = ["Burger", "Papas", "Gaseosa", 1200]
-const combo3 = ["Burger", "Ensalada", "Cerveza", 1500]
-
-const compra = [...combo2, ...combo3]
-console.log(compra)
+    renderCarrito()
+    renderCantidad()
+    rederTotal()
 
 
 
-
-
-
+    
 
 
 

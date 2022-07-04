@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Macondo&family=Montserrat:ital,wght@0,100;0,200;0,300;1,100&family=Permanent+Marker&display=swap");
+
 /* Body */
 
 body {
@@ -6,7 +7,8 @@ body {
   font-family: "Neuton";
   background-size: cover;
   background-attachment: fixed;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+}
 
 h1, h2 {
   font-family: "Neuton";
@@ -16,6 +18,63 @@ h1, h2 {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+/* Intro */
+
+.intro{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+  background:url(../assets/img/fondointro.jpg);
+  transition: 7s;
+}
+
+.intro img{
+  top: 30px;
+  position: absolute;
+}
+
+.intro p{
+  color: grey;
+  font-size: 3rem;
+  margin-top: 450px;
+  font-family: "Neuton";
+}
+
+.logos{
+  font-size: 3rem;
+  color: #fff;
+  font-family: "Neuton";
+}
+
+.marca{
+  letter-spacing: 50px;
+    font-size: 3rem;
+    color: white;
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+    font-family: "Neuton";
+}
+
+.marca.active{
+  bottom: 0;
+  opacity: 1;
+  transition: ease-in-out .7s;
+}
+
+.marca.fade{
+  bottom: 250px;
+  opacity: 0;
+  transition: ease-in-out .7s;
 }
 
 /* Navbar */
@@ -56,7 +115,7 @@ h1, h2 {
 	width: 40em;
 	text-align: center;}
   
-.span {
+.span2 {
 
       font: 700 4em/1 "Oswald", sans-serif;
       letter-spacing: 0;
@@ -109,11 +168,11 @@ main{
 }
 
 .card2 {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-image: url(../assets/img/fondointro.jpg);
   color: #fff;
-  box-shadow: 1px 1px 5px #adabab;
+  box-shadow: 1px 1px 5px #fff;
   border: solid rgba(3, 133, 255, 0) 2px;
-  width: 320px;
+  width: 250px;
   height: 250px;
   font-family: 'Macondo', cursive;
   font-size: 0.3rem;
@@ -148,9 +207,10 @@ main{
   margin-right: auto; }
 
 .btn {
-  background-color: rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to right, #d20bec, #462b16, #d20bec);
   border: none;
-}
+  font-size: 10px;
+  }
 
 .btn:hover{
   background-color: rgba(87, 77, 77, 0.8);
@@ -160,79 +220,17 @@ main{
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Gift */
-
-.modal-container{
-  opacity: 0;
-  visibility: hidden;
-  font-family: "Neuton";
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  transition: transform 1s;
-}
-/* .modal-close{
-  font-family: "Neuton";
-  width: 40%;
-  height: 50%;
-  color: #fff;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  position: relative;
-  transition: transform 1s;
-  } */
-
-.imgc{
-  margin: 20px auto;
-  padding-bottom: 5px;
-  width: 50%;
-  border-radius: 30px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.giftCerrar{
-    position: relative;
-    top: 5px;
-    right: 5px;
-    display: inline-flex;
-    width: 25px;
-    height: 25px;
-    background: white;
-    color: gray;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 30%;
-}
-.gift{
-  color: #fff;
-  font-family: "Neuton";
-  text-align: center;
-  font-size: 20px;
-}
-
 /* Modal */
 
   .modal-contenedor {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 99%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:space-between;
+    align-items:center;
     transition: all .5s;
     opacity: 0;
     visibility: hidden;
@@ -247,16 +245,16 @@ main{
 }
 
 .modal-carrito {
-    background-image: url(../assets/img/fondomodal.jpeg);
+    background-image: url(../assets/img/fondointro.jpg);
     position: relative;
     background-color: rgba(0, 0, 0, 0.4);
-    min-width: 300px;
-    padding: 30px;
+    min-width: 100px;
+    padding: 25px;
     margin-top: -100%;
     transition: all .5s;
     border-radius: 20px;
-    border-top: 2px solid #50ff1b;
-    border-left: 2px solid #50ff1b;
+    box-shadow: 2px 1px 2px #fff;
+    border: solid rgba(3, 133, 255, 0) 2px;
 }
 
 .modal-active .modal-carrito {
@@ -377,7 +375,7 @@ main{
    .tit{
     font-size: 0.5rem;
    }
-   .span{
+   .span2{
     font-size: 2rem;
    }
    .card2{
