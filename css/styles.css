@@ -158,6 +158,14 @@ backface-visibility: hidden;
   
 /* Tienda on line */
 
+.btnn{
+  background-image: url(../assets/img/fondotarjetabody2.jpg);
+  border: none;
+  font-size: 18px;
+  margin: 0 600px;
+  border-radius: 5%;
+}
+
 main{
   display: flex;
   flex-wrap:wrap;

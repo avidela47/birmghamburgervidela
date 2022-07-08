@@ -12,29 +12,37 @@ const vaciarCarrito = document.querySelector('#vaciarCarrito')
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []
 
- // Agragar productos stock al DOM
+let stock = []
 
-stockproductos.forEach((producto) => {
-    const div = document.createElement('div')
-    div.classList.add('container-fliud')
+ // Agragar productos stock al DOM con FETCH
 
-    div.innerHTML = `
-                     <div class="row g-4">
-                     <div class="col-12 col-md-6 col-lg-4">
-                     <div class="card2 mx-auto rounded-3">
-                     <div class="card-body">
-                     <h5 class="card-title">${producto.nombre}</h5>
-                     <p class="card-text">${producto.descripcion}</p>
-                     <h5 class="card-title">$${producto.precio}</h5>
-                     <img class="img" src=${producto.img} alt="">
-                     <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary btn-sm">Agregar<i class="fa-solid fa-cart-arrow-down fa-2x"></i></button>
-                     <h5 class="card-title">${producto.descuento === true ? "<p>15% off</p>" : ''}</h5>
-                     </div>
-                     </div>
-                     </div>
-                     </div>
-                    `
-productosContenedor.append(div)
+ fetch(`./js/stock.json`)
+    .then((resp) => resp.json())
+    .then((data) => {
+        stock = data
+
+        stock.forEach((producto) => {
+            const div = document.createElement('div')
+            div.classList.add('container-fliud')
+        
+            div.innerHTML = `
+                             <div class="row g-4">
+                             <div class="col-12 col-md-6 col-lg-4">
+                             <div class="card2 mx-auto rounded-3">
+                             <div class="card-body">
+                             <h5 class="card-title">${producto.nombre}</h5>
+                             <p class="card-text">${producto.descripcion}</p>
+                             <h5 class="card-title">$${producto.precio}</h5>
+                             <img class="img" src=${producto.img} alt="">
+                             <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary btn-sm">Agregar<i class="fa-solid fa-cart-arrow-down fa-2x"></i></button>
+                             <h5 class="card-title">${producto.descuento === true ? "<p>15% off</p>" : ''}</h5>
+                             </div>
+                             </div>
+                             </div>
+                             </div>
+                            `
+        productosContenedor.append(div)
+    })
 })
 
 // Agragar productos al carrito de compras
@@ -46,7 +54,7 @@ const agregarAlCarrito = (productoId) => {
         combosEnCarrito.cantidad += 1
         showMensaje(combosEnCarrito.nombre)
     } else {
-        const {id, nombre, img, precio} = stockproductos.find( (combo) => combo.id === productoId)
+        const {id, nombre, img, precio} = stock.find( (combo) => combo.id === productoId)
     
         const combosAlCarrito = {
         id, nombre, img, precio, cantidad: 1
