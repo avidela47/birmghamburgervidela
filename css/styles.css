@@ -159,11 +159,17 @@ backface-visibility: hidden;
 /* Tienda on line */
 
 .btnn{
-  background-image: url(../assets/img/fondotarjetabody2.jpg);
+  background-image: url(../assets/img/fondogift.jpeg);
+  width: 180px;
+  height: 120px;
+  justify-content:space-between;
   border: none;
-  font-size: 18px;
-  margin: 0 600px;
-  border-radius: 5%;
+  margin: 5px 94px;
+  padding: 5px 30px;
+  font-family: "Neuton";
+  color:white;
+  box-shadow: 1px 1px 5px #fff;
+  border: solid rgba(3, 133, 255, 0) 2px;
 }
 
 main{
