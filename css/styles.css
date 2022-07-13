@@ -55,7 +55,7 @@ h1, h2 {
 }
 
 .marca{
-  letter-spacing: 50px;
+    letter-spacing: 50px;
     font-size: 3rem;
     color: white;
     position: relative;
@@ -155,10 +155,11 @@ backface-visibility: hidden;
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
-  
+
 /* Tienda on line */
 
 .btnn{
+  letter-spacing: .2em;
   background-image: url(../assets/img/fondogift.jpeg);
   width: 180px;
   height: 120px;
@@ -167,7 +168,8 @@ backface-visibility: hidden;
   margin: 5px 94px;
   padding: 5px 30px;
   font-family: "Neuton";
-  color:white;
+  color:rgb(255, 255, 255);
+  font-weight: bolder;
   box-shadow: 1px 1px 5px #fff;
   border: solid rgba(3, 133, 255, 0) 2px;
 }
